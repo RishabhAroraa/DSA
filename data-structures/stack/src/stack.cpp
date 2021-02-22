@@ -11,11 +11,11 @@ class Stack {
 	}
 
 	void push(int num) {
-		arr[++top] = num;
+		if(top < size - 1) arr[++top] = num;
 	}
 
 	int pop() {
-		return arr[top--];
+		if(top > -1) return arr[top--];
 	}
 
 	bool isEmpty() {
@@ -24,7 +24,7 @@ class Stack {
 	}
 
 	bool isFull() {
-		if(size == top + 1) returm true;
+		if(size == top + 1) return true;
 		return false;
 	}
 
