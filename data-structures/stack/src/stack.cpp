@@ -1,3 +1,5 @@
+#include <iostream>
+
 class Stack {
 
 	int* arr;
@@ -16,6 +18,7 @@ class Stack {
 
 	int pop() {
 		if(top > -1) return arr[top--];
+		return 0;
 	}
 
 	bool isEmpty() {
@@ -30,10 +33,18 @@ class Stack {
 
 	int peek(int idx) {
 		if(top >= idx)	return arr[idx];
-		return -1;
+		return 0;
 	}
 
 	int count() {
 		return top+1;
 	}
-}
+
+	void display() {
+		for(int i = 0; i <= top; i++) {
+			std::cout << arr[i] << ' ';
+		}
+		std::cout << std::endl;
+	}
+
+};
