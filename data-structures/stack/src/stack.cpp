@@ -1,22 +1,39 @@
 class Stack {
 
-	int* head;
-	int count = 0;
+	int* arr;
+	int top = -1;
+	int size = 0;
 
-	Stack();
-	Stack(const Stack&);
-	Stack(int)
+	public:
+	Stack(int size) {
+		arr = (int*)malloc(size * sizeof(int));
+		this->size = size;
+	}
 
-	// i hate c++
-	void push(int);
-	int pop();
+	void push(int num) {
+		arr[++top] = num;
+	}
 
-	int peek();
-	int count();
+	int pop() {
+		return arr[top--];
+	}
 
-	bool isEmpty();
-	bool isFull();
+	bool isEmpty() {
+		if(top == -1) return true;
+		return false;
+	}
 
-	void change(int,int);
-	void display();
+	bool isFull() {
+		if(size == top + 1) returm true;
+		return false;
+	}
+
+	int peek(int idx) {
+		if(top >= idx)	return arr[idx];
+		return -1;
+	}
+
+	int count() {
+		return top+1;
+	}
 }
